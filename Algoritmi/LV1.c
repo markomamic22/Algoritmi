@@ -35,14 +35,14 @@ void swap(float* a, float* b)
 int partition(float arr[], int low, int high)
 {
 	float pivot = arr[high]; // pivot 
-	int i = (low - 1); // Index of smaller element and indicates the right position of pivot found so far
+	int i = (low - 1); // index manjeg elementa i index pravoga mjesta particiji do sad
 
 	for (int j = low; j <= high - 1; j++)
 	{
-		// If current element is smaller than the pivot 
+		// ako je trenutni element manji od pivota 
 		if (arr[j] < pivot)
 		{
-			i++; // increment index of smaller element 
+			i++; // povecaj index manjeg elementa 
 			swap(&arr[i], &arr[j]);
 		}
 	}
@@ -55,39 +55,36 @@ void quickSort(float arr[], int low, int high)
 {
 	if (low < high)
 	{
-		/* pi is partitioning index, arr[p] is now
-		at right place */
+		/* pi - index particije, arr[p] sada na pravome mjestu */
 		int pi = partition(arr, low, high);
 
-		// Separately sort elements before 
-		// partition and after partition 
+		//zasebno sortiraj elemente lijevo i desno od particije
 		quickSort(arr, low, pi - 1);
 		quickSort(arr, pi + 1, high);
 	}
 }
+//O(1) -iterativno - O(logn) -rekurzivno
 int bin_pret(float V[], int n, float x) {
-	
+	//iterativno
 	int dg = 0;
 	int gg = n - 1;
 	
 	while (dg <= gg) {
 		int m = dg + (gg - dg) / 2;
 
-		// Check if x is present at mid
+		// Broj u sredini
 		if (V[m] == x)
 			return m;
 
-		// If x greater, ignore left half
+		// Ukoliko veci zanemari lijevu stranu
 		if (V[m] < x)
 			dg = m + 1;
 
-		// If x is smaller, ignore right half
+		// Ukoliko manji zanemari desnu
 		else
 			gg = m - 1;
 	}
 
-	// if we reach here, then element was
-	// not present
 	return -1;
 }
 int main() {
