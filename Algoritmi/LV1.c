@@ -5,7 +5,6 @@
 
 void gen_arr(float V[], int n, float dg, float gg);
 int sekv_pret(float v[], int n, float x);
-void sort(float V[], int n);
 
 
 void gen_arr(float V[], int n, float dg, float gg) {
@@ -27,15 +26,15 @@ int sekv_pret(float V[], int n, float x) {
 	}
 	return -1;
 }
-void swap(int* a, int* b)
+void swap(float* a, float* b)
 {
-	int t = *a;
+	float t = *a;
 	*a = *b;
 	*b = t;
 }
-int partition(int arr[], int low, int high)
+int partition(float arr[], int low, int high)
 {
-	int pivot = arr[high]; // pivot 
+	float pivot = arr[high]; // pivot 
 	int i = (low - 1); // Index of smaller element and indicates the right position of pivot found so far
 
 	for (int j = low; j <= high - 1; j++)
@@ -52,7 +51,7 @@ int partition(int arr[], int low, int high)
 }
 
 //Qucik sort O(n*log(n))
-void quickSort(int arr[], int low, int high)
+void quickSort(float arr[], int low, int high)
 {
 	if (low < high)
 	{
