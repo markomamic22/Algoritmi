@@ -5,7 +5,7 @@
 
 void gen_arr(float V[], int n, float dg, float gg);
 int sekv_pret(float v[], int n, float x);
-
+int bin_pret(float V[], int n, float x);
 
 void gen_arr(float V[], int n, float dg, float gg) {
 	
@@ -65,6 +65,31 @@ void quickSort(float arr[], int low, int high)
 		quickSort(arr, pi + 1, high);
 	}
 }
+int bin_pret(float V[], int n, float x) {
+	
+	int dg = 0;
+	int gg = n - 1;
+	
+	while (dg <= gg) {
+		int m = dg + (gg - dg) / 2;
+
+		// Check if x is present at mid
+		if (V[m] == x)
+			return m;
+
+		// If x greater, ignore left half
+		if (V[m] < x)
+			dg = m + 1;
+
+		// If x is smaller, ignore right half
+		else
+			gg = m - 1;
+	}
+
+	// if we reach here, then element was
+	// not present
+	return -1;
+}
 int main() {
 
 	int n;
@@ -94,7 +119,10 @@ int main() {
 	quickSort(x, 0, n - 1);
 	time2 = clock();
 	printf("Vrijeme potrebno za sortiranje: %dms\n", (time2 - time1));
-
+	time1 = clock();
+	rez = bin_pret(x, n, 150.2568497);
+	time2 = clock();
+	printf("Vrijeme potrebno za binarno: %dms\n", (time2 - time1));
 
 
 
