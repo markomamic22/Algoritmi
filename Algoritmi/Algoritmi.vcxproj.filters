@@ -21,5 +21,8 @@
     <ClCompile Include="LV2.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LV4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
